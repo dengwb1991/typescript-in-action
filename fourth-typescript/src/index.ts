@@ -9,3 +9,16 @@ module({a: 2 })
 import umd from './umd-lib/index.js'
 
 umd.doSomething()
+
+import m from 'moment'
+declare module 'moment' {
+  export function myFunction (): void
+}
+m.myFunction = () => {}
+
+declare global {
+  namespace globalLib {
+    function doAnyting (): void
+  }
+}
+globalLib.doAnyting = () => {}
