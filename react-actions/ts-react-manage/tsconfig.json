@@ -1,9 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@assets/*": ["src/assets/*"]
-    },
     "target": "es5",
     "lib": [
       "dom",
@@ -23,6 +19,7 @@
     "noEmit": true,
     "jsx": "react"
   },
+  "extends": "./paths.json",
   "include": [
     "src"
   ]
