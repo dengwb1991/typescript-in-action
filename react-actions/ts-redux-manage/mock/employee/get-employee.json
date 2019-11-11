@@ -1,0 +1,26 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "key": 1,
+      "name": "小明",
+      "department": "技术部",
+      "departmentId": 1,
+      "hiredate": "2019-07-01",
+      "level": "入门",
+      "levelId": 1
+    },
+    {
+      "id": 2,
+      "key": 2,
+      "name": "小王",
+      "department": "产品部",
+      "departmentId": 2,
+      "hiredate": "2017-07-01",
+      "level": "高级",
+      "levelId": 4
+    }
+  ],
+  "msg": "success",
+  "successful": 1
+}
