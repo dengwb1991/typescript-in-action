@@ -1,0 +1,30 @@
+.login-wrap {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url('../../assets/images/bg_image.jpg');
+  background-size: 100% 100%;
+  .login-container {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 40%;
+    left: 47%;
+    width: 260px;
+    height: 200px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 1px 1px 40px #fff;
+  }
+  .login-username {
+    input, i {
+      color: #fff;
+      background: transparent;
+      border: none;
+    }
+    .ant-input:focus {
+      border: none;
+      border-bottom: 1px solid transparent !important;
+      box-shadow: none;
+    }
+  }
+}

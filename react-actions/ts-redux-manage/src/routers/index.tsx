@@ -1,11 +1,15 @@
 import React from 'react'
-import { BrowserRouter, Route }  from 'react-router-dom'
+import { BrowserRouter, Route, Switch }  from 'react-router-dom'
 
 import App from '../app'
+import Login from '../pages/login'
 
 const Root = () => (
   <BrowserRouter>
-    <Route path="/*" component={ App }/>
+    <Switch>
+      <Route path="/login" component={ Login }/>
+      <Route path="/*" component={ App }/>
+    </Switch>
   </BrowserRouter>
 )
 
