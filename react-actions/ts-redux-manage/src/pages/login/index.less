@@ -14,16 +14,22 @@
     border-radius: 5px;
     background: rgba(255, 255, 255, 0.15);
     box-shadow: 1px 1px 40px #fff;
+    padding: 0 20px;
   }
-  .login-username {
+  .ant-input-affix-wrapper .ant-input:not(:first-child) {
+    padding-left: 35px;
+  }
+  .login-username, .login-password {
+    margin-top: 20px;
     input, i {
       color: #fff;
       background: transparent;
       border: none;
+      border-radius: 0;
+      border-bottom: 1px solid #fff;
     }
-    .ant-input:focus {
-      border: none;
-      border-bottom: 1px solid transparent !important;
+    .ant-input:focus, .ant-input:hover {
+      border-bottom: 1px solid #fff !important;
       box-shadow: none;
     }
   }
