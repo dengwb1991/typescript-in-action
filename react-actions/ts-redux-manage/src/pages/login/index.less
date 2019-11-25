@@ -10,14 +10,24 @@
     top: 40%;
     left: 47%;
     width: 260px;
-    height: 200px;
+    height: 180px;
     border-radius: 5px;
     background: rgba(255, 255, 255, 0.15);
     box-shadow: 1px 1px 40px #fff;
     padding: 0 20px;
+    text-align: center;
   }
   .ant-input-affix-wrapper .ant-input:not(:first-child) {
     padding-left: 35px;
+  }
+  .login-submit, .ant-btn:focus, .ant-btn:hover {
+    margin-top: 20px;
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff !important;
+    &:after {
+      content: none;
+    }
   }
   .login-username, .login-password {
     margin-top: 20px;
