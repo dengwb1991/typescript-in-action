@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { message } from 'antd'
+import { isEmpty } from './utils'
 
 axios.defaults.timeout = 10000
 
@@ -13,9 +14,10 @@ axios.interceptors.request.use(config => {
 
 axios.interceptors.response.use(response => {
   if (response.status === 200) {
-    return Promise.resolve(response)
-  } else {
-    return Promise.reject(response)
+    if (+response.data.successful === 0) {
+      return {}
+    }
+    return response.data
   }
 }, error => {
   if (error.response.status) {
@@ -24,9 +26,15 @@ axios.interceptors.response.use(response => {
         message.error('not found')
         break;
     }
-    return Promise.reject(error.response)
+    return {}
   }
 })
+
+const getToken = () => {
+  return {
+    accessToken: localStorage.getItem('accessToken')
+  }
+}
 
 const convertQuery = (params: any): string => {
   if (!params) {
@@ -35,14 +43,32 @@ const convertQuery = (params: any): string => {
   return Object.keys(params).reduce((pre, key) => (pre + `${key}=${encodeURIComponent(params[key])}&`), '').slice(0, -1)
 }
 
-async function get (url: string, params: any) {
-  const res = await axios.get(url, { params })
-  return res.data.data
+function get (url: string, params: any, { headers }: any = {}) {
+  return new Promise((resolve) => {
+    axios.get(url, { params, headers: {
+      ...headers,
+      ...getToken()
+    }}).then(res => {
+      if (!isEmpty(res)) {
+        resolve(res.data)
+      }
+    })
+  })
 }
 
-async function post (url: string, params: any) {
-  const res = await axios.post(url, convertQuery(params))
-  return res.data
+function post (url: string, params: any, { headers }: any = {}) {
+  return new Promise((resolve) => {
+    axios.post(url, convertQuery(params), {
+      headers: {
+        ...headers,
+        ...getToken()
+      }
+    }).then(res => {
+      if (!isEmpty(res)) {
+        resolve(res.data)
+      }
+    })
+  })
 }
 
 export default {
