@@ -1,0 +1,25 @@
+{
+  "name": "ts-babel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src --out-dir dist --extensions \".ts,.tsx\"",
+    "type-check": "tsc --watch"
+  },
+  "author": "dengwb",
+  "license": "ISC",
+  "keywords": [
+    "Typescript",
+    "Babel"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-typescript": "^7.3.3",
+    "typescript": "^3.7.4"
+  }
+}
