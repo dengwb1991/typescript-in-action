@@ -1,0 +1,30 @@
+{
+  "name": "ts-vue-component",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode=development --config ./build/webpack.config.js",
+    "build": "webpack --mode=production --config ./build/webpack.config.js"
+  },
+  "author": "dengwb",
+  "license": "ISC",
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.4.1",
+    "html-webpack-plugin": "^3.2.0",
+    "reflect-metadata": "^0.1.13",
+    "ts-loader": "^6.0.2",
+    "typescript": "^3.5.1",
+    "vue-loader": "^15.8.3",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.5.1",
+    "webpack-merge": "^4.2.1"
+  },
+  "dependencies": {
+    "vue": "^2.6.10",
+    "vue-property-decorator": "^8.3.0"
+  }
+}
