@@ -11,8 +11,7 @@
 import { Vue, Component, Prop } from 'vue-property-decorator'
 
 @Component
-export default class PropsHello extends Vue {
-  // 如果未设置默认值 需要定义 undefined
+export default class PropComponent extends Vue {
   @Prop(Number)
   readonly propA: number | undefined
 
@@ -21,11 +20,6 @@ export default class PropsHello extends Vue {
 
   @Prop([String, Boolean])
   propC: string | boolean | undefined
-
-  created () {
-    // console.log(this['role'])
-    // this.propC = true
-  }
 }
 </script>
 

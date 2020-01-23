@@ -165,6 +165,42 @@ export default class PropsHello extends Vue {
 TS2564: Property 'propB' has no initializer and is not definitely assigned in the constructor.
 ```
 
-当添加了 ! 标志. 该参数会避开 Typescript 校验机制，如果定义了 Number 类型，其实你可以传入 string、boolean 类型.
+当添加了 ! 标志. 该参数会避开 Typescript 校验机制，如果定义了 Number 类型，其实你可以传入 string、boolean 类型. 或者不定义任何类型.
 
 
+### @PropSync
+
+用法 @Prop(propName: string, options: (PropOptions | Constructor[] | Constructor) = {}) decorator.
+
+**TS中：**
+
+```ts
+import { Vue, Component, PropSync } from 'vue-property-decorator'
+
+@Component
+export default class YourComponent extends Vue {
+  @PropSync('name', { type: String }) syncedName!: string
+}
+```
+
+**JS中：**
+
+```js
+export default {
+  props: {
+    name: {
+      type: String
+    }
+  },
+  computed: {
+    syncedName: {
+      get() {
+        return this.name
+      },
+      set(value) {
+        this.$emit('update:name', value)
+      }
+    }
+  }
+}
+```
