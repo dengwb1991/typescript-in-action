@@ -1,22 +1,21 @@
 <template>
   <div>
-    <h2>Component:</h2>
-    <Hello :propMessage="propMessage"/>
+    <h2>Model:</h2>
+    <Main v-model="isChecked"
+          :value="value"/>
   </div>
 </template>
 
 <script lang="ts">
-import Hello from './hello.vue'
+import Main from './main.vue'
 import { Vue, Component} from 'vue-property-decorator'
 @Component({
   components: {
-    Hello
+    Main
   }
 })
 export default class Index extends Vue {
-  propMessage: string = 'propMessage'
-  created () {
-    console.log(2)
-  }
+  value: string = 'val'
+  isChecked = true
 }
 </script>
