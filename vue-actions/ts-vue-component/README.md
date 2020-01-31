@@ -237,3 +237,58 @@ export default {
   }
 }
 ```
+
+## Watch
+
+用法：@Watch(path: string, options: WatchOptions = {}) decorator
+
+**TS中：**
+
+```ts
+import { Vue, Component, Watch } from 'vue-property-decorator'
+
+@Component
+export default class YourComponent extends Vue {
+  @Watch('child')
+  onChildChanged(val: string, oldVal: string) {}
+
+  @Watch('person', { immediate: true, deep: true })
+  onPersonChanged1(val: Person, oldVal: Person) {}
+
+  @Watch('person')
+  onPersonChanged2(val: Person, oldVal: Person) {}
+}
+```
+
+**JS中：**
+
+```js
+export default {
+  watch: {
+    child: [
+      {
+        handler: 'onChildChanged',
+        immediate: false,
+        deep: false
+      }
+    ],
+    person: [
+      {
+        handler: 'onPersonChanged1',
+        immediate: true,
+        deep: true
+      },
+      {
+        handler: 'onPersonChanged2',
+        immediate: false,
+        deep: false
+      }
+    ]
+  },
+  methods: {
+    onChildChanged(val, oldVal) {},
+    onPersonChanged1(val, oldVal) {},
+    onPersonChanged2(val, oldVal) {}
+  }
+}
+```

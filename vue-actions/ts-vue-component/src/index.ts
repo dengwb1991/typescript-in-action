@@ -4,6 +4,7 @@ import ExamplesComponent from './examples/component/index.vue'
 import ExamplesMixins from './examples/mixins/index.vue'
 import ExamplesProps from './examples/props/index.vue'
 import ExamplesModel from './examples/model/index.vue'
+import ExamplesWatch from './examples/watch/index.vue'
 
 new Vue({
   el: '#app',
@@ -11,7 +12,8 @@ new Vue({
     ExamplesComponent,
     ExamplesMixins,
     ExamplesProps,
-    ExamplesModel
+    ExamplesModel,
+    ExamplesWatch
   },
   data: {
     name: 'TypeScript'
@@ -21,5 +23,6 @@ new Vue({
     <ExamplesMixins/>
     <ExamplesProps/>
     <ExamplesModel/>
+    <ExamplesWatch/>
   </div>`
 })
