@@ -292,3 +292,74 @@ export default {
   }
 }
 ```
+
+## Provide & Inject
+
+`provide` 和 `inject` 允许一个祖先组件向其所有子孙后代注入一个依赖，不论组件层次有多深，实现**跨级访问顶层组件**的数据.
+
+用法：@Provide(key?: string | symbol) / @Inject(options?: { from?: InjectKey, default?: any } | InjectKey) decorator
+
+**TS中：**
+
+```ts
+import { Component, Inject, Provide, Vue } from 'vue-property-decorator'
+
+const symbol = Symbol('baz')
+
+@Component
+export class MyComponent extends Vue {
+  @Inject() readonly foo!: string
+  @Inject('bar') readonly bar!: string
+  @Inject({ from: 'optional', default: 'default' }) readonly optional!: string
+  @Inject(symbol) readonly baz!: string
+
+  @Provide() foo = 'foo'
+  @Provide('bar') baz = 'bar'
+}
+```
+
+**JS中：**
+
+```js
+const symbol = Symbol('baz')
+
+export const MyComponent = Vue.extend({
+  inject: {
+    foo: 'foo',
+    bar: 'bar',
+    optional: { from: 'optional', default: 'default' },
+    [symbol]: symbol
+  },
+  data() {
+    return {
+      foo: 'foo',
+      baz: 'bar'
+    }
+  },
+  provide() {
+    return {
+      foo: this.foo,
+      bar: this.baz
+    }
+  }
+})
+```
+
+如果希望顶层组件中提供的值被修改，子孙组件注入的值同样更改的话，使用 `ProvideReactive` 和 `ProvideReactive`
+
+用法：@ProvideReactive(key?: string | symbol) / @InjectReactive(options?: { from?: InjectKey, default?: any } | InjectKey) decorator
+
+```ts
+const key = Symbol()
+@Component
+class ParentComponent extends Vue {
+  @ProvideReactive() one = 'value'
+  @ProvideReactive(key) two = 'value'
+}
+
+@Component
+class ChildComponent extends Vue {
+  @InjectReactive() one!: string
+  @InjectReactive(key) two!: string
+}
+```

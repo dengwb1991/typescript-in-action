@@ -5,6 +5,7 @@ import ExamplesMixins from './examples/mixins/index.vue'
 import ExamplesProps from './examples/props/index.vue'
 import ExamplesModel from './examples/model/index.vue'
 import ExamplesWatch from './examples/watch/index.vue'
+import ExamplesProvideInject from './examples/provide-inject/index.vue'
 
 new Vue({
   el: '#app',
@@ -13,7 +14,8 @@ new Vue({
     ExamplesMixins,
     ExamplesProps,
     ExamplesModel,
-    ExamplesWatch
+    ExamplesWatch,
+    ExamplesProvideInject
   },
   data: {
     name: 'TypeScript'
@@ -24,5 +26,6 @@ new Vue({
     <ExamplesProps/>
     <ExamplesModel/>
     <ExamplesWatch/>
+    <ExamplesProvideInject/>
   </div>`
 })
