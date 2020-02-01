@@ -448,3 +448,42 @@ export default {
   }
 }
 ```
+
+## Ref
+
+用法：@Ref(refKey?: string) decorator
+
+**TS中：**
+
+```ts
+import { Vue, Component, Ref } from 'vue-property-decorator'
+
+import AnotherComponent from '@/path/to/another-component.vue'
+
+@Component
+export default class YourComponent extends Vue {
+  @Ref() readonly anotherComponent!: AnotherComponent
+  @Ref('aButton') readonly button!: HTMLButtonElement
+}
+```
+
+**JS中：**
+
+```js
+export default {
+  computed() {
+    anotherComponent: {
+      cache: false,
+      get() {
+        return this.$refs.anotherComponent as AnotherComponent
+      }
+    },
+    button: {
+      cache: false,
+      get() {
+        return this.$refs.aButton as HTMLButtonElement
+      }
+    }
+  }
+}
+```

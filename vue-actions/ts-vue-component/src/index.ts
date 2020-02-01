@@ -7,6 +7,7 @@ import ExamplesModel from './examples/model/index.vue'
 import ExamplesWatch from './examples/watch/index.vue'
 import ExamplesProvideInject from './examples/provide-inject/index.vue'
 import ExamplesEmit from './examples/emit/index.vue'
+import ExamplesRef from './examples/ref/index.vue'
 
 new Vue({
   el: '#app',
@@ -17,7 +18,8 @@ new Vue({
     ExamplesModel,
     ExamplesWatch,
     ExamplesProvideInject,
-    ExamplesEmit
+    ExamplesEmit,
+    ExamplesRef
   },
   data: {
     name: 'TypeScript'
@@ -30,5 +32,6 @@ new Vue({
     <ExamplesWatch/>
     <ExamplesProvideInject/>
     <ExamplesEmit/>
+    <ExamplesRef/>
   </div>`
 })
