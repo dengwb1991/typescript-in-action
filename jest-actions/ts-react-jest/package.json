@@ -1,0 +1,47 @@
+{
+  "name": "ts-react-jest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.tsx",
+  "scripts": {
+    "dev": "webpack-dev-server --mode=development --config ./build/webpack.config.js",
+    "build": "webpack --mode=production --config ./build/webpack.config.js",
+    "test": "jest"
+  },
+  "keywords": [
+    "TypeScript",
+    "React"
+  ],
+  "author": "dengwb",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.2.9",
+    "@types/classnames": "^2.2.9",
+    "@types/enzyme": "^3.10.5",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/jest": "^25.1.2",
+    "@types/react": "^16.9.11",
+    "@types/react-dom": "^16.9.3",
+    "@types/source-map": "^0.5.7",
+    "chai": "^4.2.0",
+    "classnames": "^2.2.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^25.1.0",
+    "jsdom": "^16.1.0",
+    "jsdom-global": "^3.0.2",
+    "ts-jest": "^25.2.0",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.6.2",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8",
+    "webpack-dev-server": "^3.8.0",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
+  }
+}
