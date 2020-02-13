@@ -71,17 +71,24 @@ Enzyme.configure({
 
 安装 [identity-obj-proxy](https://github.com/keyz/identity-obj-proxy)
 
+```bash
+$ yarn add identity-obj-proxy -D
+```
 
 ```js
 // jest.config.js
 
 module.exports = {
   moduleNameMapper: {
-    "\\.(css|scss)$": "identity-obj-proxy"
+    "\\.(css|less|scss)$": "identity-obj-proxy"
   },
   ...
 }
 ```
+
+[文档](https://jestjs.io/docs/en/webpack)
+
+[解决问题](https://stackoverflow.com/questions/41040269/syntax-error-when-test-component-with-sass-file-imported)
 
 ## 测试报告
 
