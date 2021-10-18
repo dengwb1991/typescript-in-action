@@ -14,3 +14,5 @@ new Vue({
   components: { Hello },
   template: `<hello/>`
 })
+
+// Vue.createAPI()
